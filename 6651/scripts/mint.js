@@ -13,6 +13,7 @@ async function main() {
   //Address you want to mint your NFT to
   const to = process.env.WALLET_ADDRESS
   // Mint token
+  
   const tx = await persona.safeMint(to, baseURI);
 
   // Wait for the transaction to be mined

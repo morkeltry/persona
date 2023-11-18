@@ -1,6 +1,12 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
 
+const {
+  ALCHEMY_GOERLI_URL,
+  MULTIBAAS_API_KEY,
+  MULTIBAAS_DEPLOYMENT_URL,
+  PRIVATE_KEY
+} = process.env;
 
 module.exports = {
   solidity: "0.8.22",
@@ -9,14 +15,27 @@ module.exports = {
     hardhat: {
       chainId: 84531,
     },
-      basegoerli: {
-        url: `${process.env.ALCHEMY_BASE_GOERLI_URL}`,
-        accounts: [`0x${process.env.PRIVATE_KEY}`],
-        gasPrice: 8000000000,
+      goerli: {
+        url: `${ALCHEMY_GOERLI_URL}`,
+        accounts: [`0x${PRIVATE_KEY}`],
       }, 
-  },
+      // multibaas default to multibaas_base_goerli
+      multibaas: {
+        url: `${MULTIBAAS_DEPLOYMENT_URL}/web3/${MULTIBAAS_API_KEY}`,
+        chainId: `84531`,
+        accounts: [`0x${PRIVATE_KEY}`],
+      },
+      multibaas_base_goerli: {
+        url: `${MULTIBAAS_DEPLOYMENT_URL}/web3/${MULTIBAAS_API_KEY}`,
+        chainId: `84531`,
+        accounts: [`0x${PRIVATE_KEY}`],
+      },
+  }, 
   defaultNetwork: "hardhat",
-  etherscan: {
-    apiKey: "PLACEHOLDER_STRING"
+  mbConfig: {
+    apiKey: MULTIBAAS_API_KEY,
+    host: new URL(MULTIBAAS_DEPLOYMENT_URL),
+    allowUpdateAddress: ["development"],
+    allowUpdateContract: ["development"],
   },
 };

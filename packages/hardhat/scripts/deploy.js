@@ -1,4 +1,5 @@
 require("hardhat");
+import { DeployResult, DeployProxyResult } from "hardhat-multibaas-plugin/lib/type-extensions";
 
 async function main() {
   const Persona = await ethers.deployContract("Persona");
