@@ -9,7 +9,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "hardhat": "^2.19.0"
+    "hardhat": "^2.19.0",
+    "hardhat-multibaas-plugin": "^0.1.4"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-toolbox": "^3.0.0",
