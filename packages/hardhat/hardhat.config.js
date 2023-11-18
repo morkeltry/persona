@@ -13,7 +13,7 @@ module.exports = {
   networks: {
 		//Add extra chains as needed 
     hardhat: {
-      chainId: 1337,
+      chainId: 84531,
     },
       goerli: {
         url: `${ALCHEMY_GOERLI_URL}`,

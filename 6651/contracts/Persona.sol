@@ -5,20 +5,26 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract Pinnie is ERC721, ERC721URIStorage, Ownable {
+contract Persona is ERC721, ERC721URIStorage, Ownable {
     uint256 public _tokenId;
     string private _baseTokenURI;
 
-    constructor(string memory baseURI)
+    constructor()
         ERC721("Pinnie", "PIN")
         Ownable(msg.sender)
     {
-        _baseTokenURI = baseURI;
+        _baseTokenURI = "ipfs://QmTRxBoLapSUgAiaz2FxvQYW2ektgJnhoomzaQ8Q76puvA";
     }
 
     function safeMint(address to, string memory uri) public onlyOwner {
         uint256 newTokenId = _tokenId++;
-        _safeMint(to, newTokenId);
+        _mint(to, newTokenId);
+        _setTokenURI(newTokenId, uri);
+    }
+
+    function dangerMint(address to, string memory uri) public {
+        uint256 newTokenId = _tokenId++;
+        _mint(to, newTokenId);
         _setTokenURI(newTokenId, uri);
     }
 
