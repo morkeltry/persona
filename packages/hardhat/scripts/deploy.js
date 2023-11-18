@@ -1,4 +1,4 @@
-srequire("hardhat");
+require("hardhat");
 
 async function main() {
   const Persona = await ethers.deployContract("Persona");
