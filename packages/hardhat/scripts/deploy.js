@@ -1,8 +1,8 @@
-require("hardhat");
+srequire("hardhat");
 
 async function main() {
-  const Pinnie = await ethers.deployContract("Pinnie");
-  const pinnie = await Pinnie.waitForDeployment();
+  const Persona = await ethers.deployContract("Persona");
+  const persona = await Persona.waitForDeployment();
  
 
   const Account = await ethers.deployContract("ERC6551Account");
