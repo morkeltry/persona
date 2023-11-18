@@ -1,3 +1,31 @@
+@import url("ui/styles/fonts.css");
+
+.ant-modal {
+  width: fit-content !important;
+}
+.ant-modal-content {
+  display: contents !important;
+}
+
+.ant-dropdown .ant-dropdown-menu-item:hover{
+  background-color: rgb(214, 193, 193) !important;
+}
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item-selected{
+  background-color: rgb(180, 171, 171) !important;
+}
+span, div {
+  font-family: "Satoshi";
+}
+
+.ant-input-affix-wrapper-lg {
+  padding: 2px;
+}
+.ant-input-affix-wrapper>input.ant-input {
+  padding: 5px;
+}
+.ant-input-lg {
+  line-height: 2;
+}
 .App {
   text-align: center;
 }
