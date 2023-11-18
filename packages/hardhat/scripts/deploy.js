@@ -11,7 +11,7 @@ async function main() {
   const Registry = await ethers.deployContract("ERC6551Registry");
   const registry = await Registry.waitForDeployment();
 
-  console.log("Pinnie contract deployed at:", pinnie.target);
+  console.log("Persona contract deployed at:", persona.target);
   console.log("Account contract deployed at:", account.target);
   console.log("Registry contract deployed at:", registry.target);
 }

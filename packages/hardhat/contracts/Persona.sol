@@ -10,7 +10,7 @@ contract Persona is ERC721, ERC721URIStorage, Ownable {
     string private _baseTokenURI;
 
     constructor(string memory baseURI)
-        ERC721("Pinnie", "PIN")
+        ERC721("Pronouns", "PRO")
         Ownable(msg.sender)
     {
         _baseTokenURI = baseURI;
