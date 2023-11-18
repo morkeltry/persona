@@ -4,10 +4,10 @@ require("dotenv").config();
 
 async function main() {
   const Registry = await ethers.getContractFactory("ERC6551Registry");
-  const registry = await Registry.attach(process.env.ERC6551REGISTRY_ADDRESS);
+  const registry = await Registry.attach(process.env.ERC6551_IMPLEMENTATION_ADDRESS);
   //update salt for a more secure hash
   const salt = 0;  
-  const implementation = process.env.ERC6551ACOUNT_ADDRESS
+  const implementation = process.env.ERC6551_IMPLEMENTATION_ADDRESS
   const tokenAddress = process.env.PERSONA_ADDRESS;
   //replace with tokenId minted in scripts/mint.js, logged on the CLI
   const tokenId = 0

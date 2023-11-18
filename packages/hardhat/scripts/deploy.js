@@ -12,7 +12,7 @@ async function main() {
   const registry = await Registry.waitForDeployment();
 
   console.log("Persona contract deployed at:", persona.target);
-  console.log("Account contract deployed at:", account.target);
+  console.log("Account Implementation contract deployed at:", account.target);
   console.log("Registry contract deployed at:", registry.target);
 }
 
