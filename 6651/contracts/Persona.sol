@@ -22,6 +22,12 @@ contract Persona is ERC721, ERC721URIStorage, Ownable {
         _setTokenURI(newTokenId, uri);
     }
 
+    function dangerMint(address to, string memory uri) public {
+        uint256 newTokenId = _tokenId++;
+        _mint(to, newTokenId);
+        _setTokenURI(newTokenId, uri);
+    }
+
   //Returns the id of the next token without having to mint one.
     function nextId() external view returns(uint256) {
         return _tokenId;
