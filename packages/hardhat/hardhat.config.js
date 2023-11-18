@@ -7,12 +7,16 @@ module.exports = {
   networks: {
 		//Add extra chains as needed 
     hardhat: {
-      chainId: 1337,
+      chainId: 84531,
     },
-      goerli: {
-        url: `${process.env.ALCHEMY_GOERLI_URL}`,
+      basegoerli: {
+        url: `${process.env.ALCHEMY_BASE_GOERLI_URL}`,
         accounts: [`0x${process.env.PRIVATE_KEY}`],
+        gasPrice: 8000000000,
       }, 
-  }, 
+  },
   defaultNetwork: "hardhat",
+  etherscan: {
+    apiKey: "PLACEHOLDER_STRING"
+  },
 };
