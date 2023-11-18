@@ -37,5 +37,5 @@ module.exports = {
     host: new URL(  MULTIBAAS_DEPLOYMENT_URL),
     allowUpdateAddress: ["development"],
     allowUpdateContract: ["development"],
-  },,
+  },
 };
