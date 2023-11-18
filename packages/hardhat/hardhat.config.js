@@ -21,12 +21,12 @@ module.exports = {
       }, 
       // multibaas default to multibaas_base_goerli
       multibaas: {
-        url: `{MULTIBAAS_DEPLOYMENT_URL}/web3/{MULTIBAAS_API_KEY}`,
+        url: `${MULTIBAAS_DEPLOYMENT_URL}/web3/${MULTIBAAS_API_KEY}`,
         chainId: `84531`,
         accounts: [`0x${PRIVATE_KEY}`],
       },
       multibaas_base_goerli: {
-        url: `{MULTIBAAS_DEPLOYMENT_URL}/web3/{MULTIBAAS_API_KEY}`,
+        url: `${MULTIBAAS_DEPLOYMENT_URL}/web3/${MULTIBAAS_API_KEY}`,
         chainId: `84531`,
         accounts: [`0x${PRIVATE_KEY}`],
       },
@@ -34,7 +34,7 @@ module.exports = {
   defaultNetwork: "hardhat",
   mbConfig: {
     apiKey: MULTIBAAS_API_KEY,
-    host: new URL(  MULTIBAAS_DEPLOYMENT_URL),
+    host: new URL(MULTIBAAS_DEPLOYMENT_URL),
     allowUpdateAddress: ["development"],
     allowUpdateContract: ["development"],
   },
