@@ -3,9 +3,9 @@ require("dotenv").config();
 
 async function main() {
   // Get the contract instance
-  const Pinnie = await ethers.getContractFactory("Pinnie");
-  const pinnie = await Pinnie.attach(process.env.PINNIE_ADDRESS);
-  tokenId = await pinnie.nextId()
+  const Persona = await ethers.getContractFactory("Persona");
+  const persona = await Persona.attach(process.env.PERSONA_ADDRESS);
+  tokenId = await persona.nextId()
   //Default IPFS hash for Pinnie json metadata. Replace with your own if desired. 
   const baseURI = "ipfs://QmTRxBoLapSUgAiaz2FxvQYW2ektgJnhoomzaQ8Q76puvA"
  
@@ -13,7 +13,7 @@ async function main() {
   //Address you want to mint your NFT to
   const to = process.env.WALLET_ADDRESS
   // Mint token
-  const tx = await pinnie.safeMint(to, baseURI);
+  const tx = await persona.Mint(to, baseURI);
 
   // Wait for the transaction to be mined
   const receipt = await tx.wait();
