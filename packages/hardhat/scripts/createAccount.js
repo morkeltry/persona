@@ -8,13 +8,13 @@ async function main() {
   //update salt for a more secure hash
   const salt = 0;  
   const implementation = process.env.ERC6551ACOUNT_ADDRESS
-  const tokenAddress = process.env.PINNIE_ADDRESS;
+  const tokenAddress = process.env.PERSONA_ADDRESS;
   //replace with tokenId minted in scripts/mint.js, logged on the CLI
   const tokenId = 0
   const chainID = 5 //goerli
   const initData = "0x";
 
-  const tx = await registry.createAccount(implementation, chainID, tokenAddress, tokenId, salt, initData);
+  const tx = await registry.createAccount(implementation, chainID, tokenAddress, tokenId, salt, initData, "bla", ["github", "twitter"]);
   const receipt = await tx.wait();
   const address = await registry.account(implementation, chainID, tokenAddress, tokenId, salt)
   
