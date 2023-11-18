@@ -14,7 +14,7 @@ async function main() {
   const chainID = 5 //goerli
   const initData = "0x";
 
-  const tx = await registry.createAccount(implementation, chainID, tokenAddress, tokenId, salt, initData, "bla", ["github", "twitter"]);
+  const tx = await registry.createAccount(implementation, chainID, tokenAddress, tokenId, salt, initData);
   const receipt = await tx.wait();
   const address = await registry.account(implementation, chainID, tokenAddress, tokenId, salt)
   
