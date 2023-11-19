@@ -27,8 +27,30 @@ https://goerli.basescan.org/tx/0x8a9ba666d5a856697767507c14861c1c0a69222c79ec2cf
 ### To run the hardhat deploy:
 
 ```
-cd packages hardhat
+cd packages/hardhat
 npx hardhat compile
 npx hardhat run --network basegoerli scripts/deploy.js
 
 ```
+
+### To run backend:
+
+```
+cd packages/backend
+docker-compose up
+go run main.go
+
+```
+
+### To run frontend code:
+
+First ensure your node version is >=v18
+
+```
+cd packages/frontend
+yarn install
+yarn start
+
+```
+
+
