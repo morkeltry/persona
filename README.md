@@ -12,13 +12,13 @@ When crafting a Persona profile, you have the ability to curate traits across nu
 
 ## We made the following transactions on base goerli:
 
-Minting a token under a tokenbound account (childNFT)
+Minting a token under a tokenbound account (childNFT):
 https://goerli.basescan.org/tx/0x0e3781b5d53c4e6c3ce58d895453155a573b75db85395444ba6e4d3fb6a452b0
 
-Account Creation
+Account Creation:
 https://goerli.basescan.org/tx/0xe832a94b62df438f60197b2d10458807b310a11d8216c5c1e7d2988e92bd17c9
 
-Registry Deployment
+Registry Deployment:
 https://goerli.basescan.org/tx/0x8a9ba666d5a856697767507c14861c1c0a69222c79ec2cfb7f82c5f6da00b98c
 
 
