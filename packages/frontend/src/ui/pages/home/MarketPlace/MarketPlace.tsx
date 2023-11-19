@@ -19,14 +19,22 @@ const Card = styled.div`
   border-radius: 24px;
   background: var(--zinc-50, #fafafa);
 `;
-const CardImage = styled.img`
-  width: 266px;
+const CardImageContainer = styled.div`
+  width: 280px;
   height: 183px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
   flex-shrink: 0;
   border-radius: 16px;
   background: #f1f1f1;
   padding: 10px 20px;
 `;
+
+const CardImage = styled.img`
+  height: 200px;
+`;
+
 const CardBody = styled.div`
   width: 100%;
   display: inline-flex;
@@ -134,7 +142,9 @@ export const MarketPlace: FC<MarketPlaceProps> = ({
             return (
               <Col span={6} key={`wearable-collection-${index}`}>
                 <Card>
+                  <CardImageContainer >
                   <CardImage src={wearable.item} alt="wearable item" />
+                  </CardImageContainer>
                   <CardBody>
                     <CardBodyRow>
                       <CardBodyRowLeft>
@@ -142,7 +152,10 @@ export const MarketPlace: FC<MarketPlaceProps> = ({
                         <CardBodyPrice>{wearable.price} ETH</CardBodyPrice>
                       </CardBodyRowLeft>
                       {wearable.price > 0.5 && (
-                        <CardBodyHighlight>Expensive</CardBodyHighlight>
+                        <CardBodyHighlight>Rare</CardBodyHighlight>
+                      )}
+                        {wearable.price <= 0.5 && (
+                        <CardBodyHighlight>Common</CardBodyHighlight>
                       )}
                     </CardBodyRow>
                     <CardBodyRow>

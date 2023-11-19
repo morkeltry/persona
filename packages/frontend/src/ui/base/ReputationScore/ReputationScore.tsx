@@ -29,8 +29,8 @@ const Level = styled.div<{ score: number }>`
   background: var(--yellow-50, #fefce8);
 
   ${({ score }) => {
-    if (score <= 3.5) return "color: #a16207;";
-    else if (score <= 7.5) return "color: #ff8300;";
+    if (score <= 3.5) return "color: #008000;";
+    else if (score <= 7.5) return "color: #008000;";
     else return "color: #00ff03;";
   }}
   font-family: Satoshi;
@@ -41,7 +41,7 @@ const Level = styled.div<{ score: number }>`
   letter-spacing: -0.14px;
 `;
 const Score = styled.div<{ score: number }>`
-  color: var(--gray-700, #374151);
+  color: var(--gray-700, #008000);
   font-family: Satoshi;
   font-size: 16px;
   font-style: normal;

@@ -2,9 +2,10 @@ import { FC, useEffect, useRef, useState } from "react";
 import { styled } from "styled-components";
 import { Footer } from "../Footer";
 import { AppButton, ForwardIcon } from "ui/base";
-import { Col, Divider, Row } from "antd";
+import { Col, Divider, Modal, Row } from "antd";
 import { AssetMenu, Menu, MenuContainer } from "ui/pages/common";
-import { IWearable } from "ui/types";
+import { INFTMetadata, IWearable } from "ui/types";
+import { cssHide } from "ui/utils";
 type IAssetCatKey =
   | "general"
   | "bgColor"
@@ -28,6 +29,10 @@ const Root = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  .ant-modal .ant-modal-body {
+    width: 900px;
+    border-radius: 16px;
+  }
 `;
 
 const Fab = styled(AppButton)`
@@ -39,7 +44,7 @@ const Fab = styled(AppButton)`
   flex-shrink: 0;
   padding: 5px;
 `;
-const Card = styled.div<{ selected: boolean; bg: string }>`
+const Card = styled.div<{ selected: boolean; bg?: string }>`
   position: relative;
   display: flex;
   width: 208px;
@@ -95,6 +100,10 @@ const AccessoryImage = styled.div`
   align-items: center;
 `;
 const Label = styled.div``;
+const Header = styled.div`
+  font-weight: 900;
+  font-size: 24px;
+`;
 type ISelectedImage = Partial<Record<IAssetCatKey, IWearable[]>>;
 export interface BuildAvatarProps {
   images: Partial<Record<IAssetCatKey, IWearable[]>>;
@@ -104,6 +113,9 @@ export interface BuildAvatarProps {
   selectedImages?: ISelectedImage;
   setAvatar: (selections: ISelectedImage) => void;
   onContinue: () => void;
+  nfts?: INFTMetadata[];
+  setNft: (nft?: INFTMetadata) => void;
+  selectedNft?: INFTMetadata;
 }
 export const BuildAvatar: FC<BuildAvatarProps> = ({
   onBack,
@@ -113,9 +125,13 @@ export const BuildAvatar: FC<BuildAvatarProps> = ({
   selectedImages,
   setAvatar,
   setTotalAmount,
+  nfts,
+  setNft,
+  selectedNft,
 }) => {
   const menuRef = useRef<HTMLDivElement>(null);
   const [tab, setTab] = useState<IAssetCatKey>("general");
+  const [openModal, setOpenModal] = useState<boolean>(false);
 
   useEffect(() => {
     if (!selectedImages) return;
@@ -228,7 +244,11 @@ export const BuildAvatar: FC<BuildAvatarProps> = ({
         )}
       </ImageContainer>
       <Divider>Or</Divider>
-      <AppButton variant="secondary" noElevate>
+      <AppButton
+        variant="secondary"
+        noElevate
+        onClick={() => setOpenModal(true)}
+      >
         Select avatar from wallet
       </AppButton>
       <Footer
@@ -241,6 +261,54 @@ export const BuildAvatar: FC<BuildAvatarProps> = ({
             !selectedImages || Object.keys(selectedImages).length === 0,
         }}
       />
+      <Modal
+        open={openModal}
+        onCancel={() => setOpenModal(false)}
+        cancelButtonProps={cssHide}
+        okButtonProps={cssHide}
+      >
+        {nfts && (
+          <ImageContainer
+            style={{
+              width: 900,
+              display: "flex",
+              flexDirection: "column",
+              background: "#fff",
+              padding: 20,
+              borderRadius: 16,
+            }}
+          >
+            <Header style={{ marginBottom: 20 }}>Select NFT</Header>
+            <Row gutter={[24, 24]}>
+              {nfts.map((nft, index) => {
+                return (
+                  <Col span={8} key={`nft-selection-${index}`}>
+                    <Card
+                      {...{
+                        selected:
+                          selectedNft?.token_id === nft.token_id &&
+                          selectedNft?.contract === nft.contract,
+                        onClick() {
+                          if (
+                            selectedNft?.contract === nft.contract &&
+                            selectedNft.token_id === nft.token_id
+                          ) {
+                            setNft();
+                          } else {
+                            setNft(nft);
+                          }
+                        },
+                      }}
+                    >
+                      <Image src={nft?.resolved?.image} alt="persona-pfp" />
+                    </Card>
+                  </Col>
+                );
+              })}
+            </Row>
+          </ImageContainer>
+        )}
+      </Modal>
     </Root>
   );
 };

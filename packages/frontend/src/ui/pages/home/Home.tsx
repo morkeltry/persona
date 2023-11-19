@@ -149,7 +149,7 @@ export const Home: FC<HomeProps> = ({
             items={[
               { label: "Home", key: "home" },
               { label: "My Personas", key: "personas" },
-              { label: "Market Place", key: "market" },
+              { label: "Marketplace", key: "market" },
             ]}
             onChange={(key) => {
               setTab(key as ITab);

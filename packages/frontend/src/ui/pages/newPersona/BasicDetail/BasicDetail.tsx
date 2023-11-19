@@ -74,7 +74,7 @@ export const BasicDetail: FC<BasicDetailProps> = ({
             fieldType: FORM_FIELD_TYPES.TEXT,
             itemProps: {
               name: "name",
-              label: <Label>Create a persona.art subdomain name</Label>,
+              label: <Label>Create a persona.eth subdomain name</Label>,
               extra:
                 nameIsAvailable !== undefined &&
                 (nameIsAvailable ? (
@@ -87,7 +87,7 @@ export const BasicDetail: FC<BasicDetailProps> = ({
             },
             fieldProps: {
               size: "large",
-              addonAfter: "persona.art",
+              addonAfter: "persona.eth",
               placeholder: "eg. johndoe",
             },
           },

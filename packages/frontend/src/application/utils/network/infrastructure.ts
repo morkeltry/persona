@@ -29,7 +29,9 @@ export class AppInfrastructure {
   }
   protected async init(wallet: WalletName) {
     //getWeb3 here is an external function from './getWeb3'
-    const { web3, accounts } = await getWeb3(wallet);
+    //const { web3, accounts } = await getWeb3(wallet);
+    const { web3, accounts } = await getWeb3(wallet) || {};
+    if(!web3) return;
     AppInfrastructure.web3 = web3;
     AppInfrastructure.accounts = accounts;
     AppInfrastructure.wallet = wallet;

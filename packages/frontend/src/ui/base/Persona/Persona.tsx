@@ -342,7 +342,7 @@ export const PersonaFrame: React.FC<PersonaFrameProps> = ({
         </Frame>
         <Footer open={open}>
           <Header>
-            <ENSName open={open}>{ens + ".persona.art"}</ENSName>
+            <ENSName open={open}>{ens + ".persona.eth"}</ENSName>
             <Arrow open={open} onClick={() => setOpen(!open)}>
               {open ? <DropUpArrowIcon /> : <DropDownArrowIcon />}
             </Arrow>

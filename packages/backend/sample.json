@@ -1,0 +1,15 @@
+[
+  [["The token id supplied is invalid."]],
+  [
+    {
+      "attributes": [{ "trait_type": "Prestige", "value": "Diamond" }],
+      "compiler": "Armanino Art Engine",
+      "date": 1657913976160,
+      "description": "Armanino LLP's first ever NFT Swag Badge Drop!",
+      "dna": "d4757d6028c6a221b9133a17f4adbade9b1a660e",
+      "edition": 30,
+      "image": "ipfs://QmPkRhRaENraiAywffo6xAiJUhGyyPQdeJGfKbbJtfVVfR/30.png",
+      "name": "Armanino NFT Swag Badge v1 #30"
+    }
+  ]
+]

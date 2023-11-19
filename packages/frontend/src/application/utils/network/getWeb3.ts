@@ -25,11 +25,15 @@ const resolveWeb3 = async (networkWallet: WalletName) => {
         80001: "https://rpc-mumbai.maticvigil.com",
       },
     });
-    await provider.enable();
-    //@ts-ignore
-    const web3 = new Web3(provider),
-      accounts = await web3.eth.getAccounts();
-    return { web3, accounts };
+    try {
+      await provider.enable();
+      //@ts-ignore
+      const web3 = new Web3(provider),
+        accounts = await web3.eth.getAccounts();
+      return { web3, accounts };
+    } catch (err) {
+      console.log({ err });
+    }
   } else {
     if (ethereum) {
       if (!Boolean(ethereum)) {

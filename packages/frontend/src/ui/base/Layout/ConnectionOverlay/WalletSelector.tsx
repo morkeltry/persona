@@ -144,7 +144,13 @@ export function WalletSelector({
         fullWidth
         disabled={!selectedWallet}
         variant="primary"
-        onClick={() => onWalletSelect(selectedWallet as WalletName)}
+        onClick={() => {
+          try {
+            onWalletSelect(selectedWallet as WalletName)
+          }catch(err) {
+            console.error(err);
+          }
+        }}
       >
         Connect
       </AppButton>

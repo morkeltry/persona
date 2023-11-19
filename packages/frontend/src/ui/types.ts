@@ -120,7 +120,7 @@ export interface INFTMetadata {
   block_number: number;
   resolved: INFTMetadataResolved;
 }
-export type IENSRegister = ".eth" | ".art" | ".persona.art";
+export type IENSRegister = ".eth" | ".art" | ".persona.eth";
 export interface IAccount {
   address: string;
   ensName?: string;

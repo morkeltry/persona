@@ -24,7 +24,7 @@ export const imageIds = ["4", "5", "6", "7", "8", "9", "10", "11"];
 export const friends: IPersona[] = imageIds.map((item, index) => ({
   ens: ensNames[index],
   address: "0x",
-  score: 30,
+  score: 7,
   nfts: {
     avatar: {
       standard: "erc1155",
@@ -48,7 +48,7 @@ export const friends: IPersona[] = imageIds.map((item, index) => ({
 export const people: IPersona[] = imageIds.map((item, index) => ({
   address: "0x",
   ens: ensNames[index],
-  score: 30,
+  score: 8,
   texts: {
     "art.persona": "engineer",
     avatar: `/assets/punks/punk${item}.png`,
@@ -135,7 +135,7 @@ export const messages: IMessage[] = [
     from: "0x",
     to: "0x",
     fromEns: {
-      name: "ceejay.persona.art",
+      name: "ceejay.persona.eth",
       avatar: "/assets/persona.png",
     },
     toEns: { name: "femi.eth", avatar: "/assets/persona.png" },
@@ -152,7 +152,7 @@ export const messages: IMessage[] = [
     from: "0x",
     to: "0x",
     fromEns: {
-      name: "ceejay.persona.art",
+      name: "ceejay.persona.eth",
       avatar: "/assets/persona.png",
     },
     toEns: { name: "femi.eth", avatar: "/assets/persona.png" },
@@ -167,7 +167,7 @@ export const messages: IMessage[] = [
     from: "0x",
     to: "0x",
     fromEns: {
-      name: "ceejay.persona.art",
+      name: "ceejay.persona.eth",
       avatar: "/assets/persona.png",
     },
     toEns: { name: "femi.eth", avatar: "/assets/persona.png" },
@@ -330,8 +330,8 @@ export const apiTokens: ITokenPrice[] = [
   },
 ];
 export const persona: IPersona = {
-  ens: "ceejay.persona.art",
-  score: 30,
+  ens: "ceejay.persona.eth",
+  score: 6,
   texts: {
     "art.persona": "engineer",
     avatar: "/assets/persona.png",

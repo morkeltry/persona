@@ -7,9 +7,12 @@ import { ThemeProvider } from "styled-components";
 import { selectSettings } from "application/redux/settings.core";
 import { colorScheme } from "ui/utils";
 import { useConnection } from "application/hooks";
+import { useNFTs } from "application/hooks/nfts";
 import { ConfigProvider } from "antd";
+
 function App() {
   const connAction = useConnection();
+  const nftAction = useNFTs();
   const settings = useAppSelector(selectSettings);
   const conn = useAppSelector(selectConnection);
   const { address, persona, wallet } = conn || {};
@@ -52,8 +55,10 @@ function App() {
             setOverlayVariables(value) {
               connAction.setConnectionOverlayVars(value);
             },
-            onConnect(wallet) {
-              return connAction.connectWallet(wallet);
+            async onConnect(wallet) {
+              const result = await connAction.connectWallet(wallet);
+              await nftAction.getNfts(result.address, true);
+              return result;
             },
             // async getAllPersonas(address) {
             //   personaAction.getAllPersonas(address);

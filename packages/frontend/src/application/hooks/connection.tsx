@@ -56,10 +56,10 @@ export const useConnection = () => {
         AppInfrastructure.getInfrastructure(wallet).then(async (infra) => {
           if (infra) {
             try {
-              const { web3, wallet, balance } = infra;
+              const { web3, wallet, balance, accounts } = infra;
               ens.init(web3);
-              const address = "0x88e4519e2Baa513Ed92B0Ae4c788D7E5c5B03Ea4"; //accounts?.[0]; TODO://
-              // const address = accounts?.[0];
+              //const address = "0x88e4519e2Baa513Ed92B0Ae4c788D7E5c5B03Ea4"; //accounts?.[0]; TODO://
+              const address = accounts?.[0];
 
               if (address) {
                 const result = {

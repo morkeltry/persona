@@ -10,7 +10,7 @@ import { AppButton, CoinIcon, PersonaFrame } from "ui/base";
 import { Col, Row } from "antd";
 import { BasicDetail, BasicDetailProps } from "./BasicDetail";
 import { SetGuild } from "./SetGuild";
-import { IGuildKey, IPersona } from "ui/types";
+import { IGuildKey, INFTMetadata, IPersona } from "ui/types";
 import { BuildAvatar, BuildAvatarProps } from "./BuildAvatar";
 import { SetRecords, SetRecordsProps } from "./SetRecords";
 import { routeNames } from "application";
@@ -53,6 +53,7 @@ type IStatuses = NewPersonaStepsProps["statuses"];
 export interface NewPersonaProps {
   checkNameAvailability: BasicDetailProps["checkNameAvailability"];
   images: BuildAvatarProps["images"];
+  nfts: BuildAvatarProps["nfts"];
   onMint: (data: {
     basicInfo?: Parameters<BasicDetailProps["setBasic"]>[0];
     selectedGuild?: IGuildKey;
@@ -64,6 +65,7 @@ export const NewPersona: FC<NewPersonaProps> = ({
   checkNameAvailability,
   images,
   onMint,
+  nfts,
 }) => {
   const navigate = useNavigate();
   const [totalAmount, setTotalAmount] = useState<number>(0);
@@ -83,6 +85,8 @@ export const NewPersona: FC<NewPersonaProps> = ({
     Parameters<SetRecordsProps["setRecords"]>[0]
   >({});
   const [flip, setFlip] = useState<boolean>(false);
+  const [selectedNft, setNft] =
+    useState<Parameters<BuildAvatarProps["setNft"]>[0]>();
 
   const currentIndex = statuses.findIndex((item) => item === "process");
   const prevStep = (currentIndex: number, statuses: IStatuses) => {
@@ -107,7 +111,7 @@ export const NewPersona: FC<NewPersonaProps> = ({
     },
     address: "0x",
     nfts: {
-      avatar: {
+      avatar: selectedNft || {
         tx_hash: "",
         block_number: 0,
         standard: "erc721",
@@ -204,6 +208,9 @@ export const NewPersona: FC<NewPersonaProps> = ({
             {currentIndex === 2 && (
               <BuildAvatar
                 {...{
+                  selectedNft,
+                  setNft,
+                  nfts,
                   images,
                   setTotalAmount,
                   onBack() {

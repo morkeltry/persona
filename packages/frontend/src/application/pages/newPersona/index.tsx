@@ -1,9 +1,21 @@
 import { NewPersona } from "ui/pages/newPersona";
 import { accessories } from "../dummy";
+import { useNFTs } from "application/hooks"
+import { selectConnection, selectNFTs, useAppSelector } from "application/redux";
+import { useEffect } from "react";
 
 export default function NewPersonaPage() {
+  const { address } = useAppSelector(selectConnection);
+  const nfts = useAppSelector(selectNFTs);
+  const { getNfts } = useNFTs();
+  useEffect(() => {
+    if(address){
+      getNfts(address, true);
+    }
+  }, [address])
   return (
     <NewPersona
+      nfts={nfts}
       onMint={(data) => {
         console.log({ data });
       }}

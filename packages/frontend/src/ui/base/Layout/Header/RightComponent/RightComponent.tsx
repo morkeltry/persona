@@ -58,7 +58,7 @@ export const RightComponent: React.FC<RightComponentProps> = ({
   ensName,
   balance,
 }) => {
-  const [open, setOpen] = useState<boolean>(true);
+  const [open, setOpen] = useState<boolean>(false);
   return (
     <Root>
       {address ? (
